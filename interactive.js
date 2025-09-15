@@ -1,0 +1,4 @@
+const short = console.log
+
+
+
