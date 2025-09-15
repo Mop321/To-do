@@ -1,6 +1,9 @@
 const short = console.log;
 
-const data = JSON.parse(localStorage.getItem("Data")) || [1];
+function clearInput() {
+  input.value = "";
+}
+const data = JSON.parse(localStorage.getItem("Data")) || [];
 
 const input = document.querySelector(".js-input-value");
 const insert = document.querySelector(".submitButton");
@@ -17,6 +20,7 @@ function appendTask() {
     let inputValue = input.value;
     data.push(inputValue);
     store();
+    clearInput();
   });
 }
 function renders(list) {
@@ -31,7 +35,23 @@ function render() {
       renders(list);
     }
   });
-
 }
-render();
 // localStorage.clear();
+
+render();
+renders(list);
+
+const tasks = document.querySelectorAll(".task");
+tasks.forEach((task) => {
+  task.addEventListener("click", () => {
+    data.forEach((value, index) => {
+      let newarr = data;
+      if (value == task.textContent) {
+        newarr.splice(index, 1);
+        store();
+        task.remove();
+        short(newarr);
+      }
+    });
+  });
+});
