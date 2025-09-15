@@ -1,11 +1,16 @@
+*{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 body{
   background-color: rgb(157, 157, 241);
+  height: 200vh;
 }
 
 .outside-box{
     display: flex;
     flex-direction: column;
     align-items: center;
+    font-weight: bold;
     justify-self: center;;
 }
 input{
@@ -19,11 +24,26 @@ input{
 }
 .inside-box{
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-direction: column;;
     justify-self: center;
     padding: 20px;
     border: 5px solid black;
     width: 500px;
     height: 300px;
+    background-color: aliceblue;
+}
+
+.list{
+    padding: 10px;
+    
+  }
+
+.task{
+  cursor: pointer;
+  height: 30px;
+}
+
+.task:hover{
+  color: red;
+  text-decoration: line-through;
 }
